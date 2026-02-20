@@ -1,65 +1,101 @@
-## Proyectos en Python
+# PySysTools (sysadmin_utils)
 
-Este repositorio contiene una colección de proyectos desarrollados en **Python**. Cada proyecto incluye su propio **README** explicando qué es y para qué funciona el código.
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
----
+**Suite Profesional de Utilidades en Python para Administración de Sistemas, Seguridad y Redes.**
 
-## ⚙️ Requisitos generales
+Este repositorio contiene una colección modular de herramientas diseñadas para automatizar tareas comunes de SysAdmins y mejorar la productividad. El código ha sido auditado y refactorizado para seguir principios de arquitectura limpia y escalabilidad.
 
-- Python 3.8 o superior
-- Librerías específicas según cada proyecto (ver `requirements.txt` en cada carpeta)
+## 🚀 Instalación
 
-Instala dependencias con:
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/tu-usuario/Proyectos-Python.git
+   cd Proyectos-Python
+   ```
 
+2. **Crear entorno virtual (Recomendado):**
+   ```bash
+   python -m venv venv
+   .\venv\Scripts\activate  # Windows
+   # source venv/bin/activate  # Linux/Mac
+   ```
+
+3. **Instalar dependencias y el paquete:**
+   ```bash
+   pip install -r requirements.txt
+   pip install -e .
+   ```
+
+## 🛠️ Uso del CLI
+
+El proyecto incluye un CLI unificado (`main.py`) para acceder a todas las herramientas.
+
+### Seguridad
+
+**Generar contraseña segura:**
 ```bash
-pip install -r requirements.txt
+python src/sysadmin_utils/main.py gen-pass -l 20
 ```
 
----
-
-## 📂 Índice de proyectos
-
-
-- [Antivirus](./Antivirus) – Análisis básico de archivos sospechosos.
-- [Buscador](./Buscador) – Herramienta de búsqueda personalizada.
-- [Calendario](./Calendario) – Gestión de fechas y eventos.
-- [Cambios](./Cambios) – Registro o control de modificaciones.
-- [Captura](./Captura) – Captura de pantalla o entrada visual.
-- [Conexiones](./Conexiones) – Monitor o gestión de conexiones de red.
-- [Descargar](./Descargar) – Descarga de archivos desde la web.
-- [Enter](./Enter) – Automatización de entrada o comandos.
-- [Fecha](./Fecha) – Manipulación y visualización de fechas.
-- [FTP](./FTP) – Cliente FTP en Python.
-- [Gestor de Archivos](./Gestor%20de%20Archivos) – Explorador o administrador de archivos.
-- [Hashbox](./Hashbox) – Generación y verificación de hashes.
-- [Mysql](./Mysql) – Conexión y gestión de bases de datos MySQL.
-- [Network](./Network) – Utilidades de red y escaneo.
-- [Notificacion](./Notificacion) – Envío o gestión de notificaciones.
-- [Password Generator](./Password%20Generator) – Generador de contraseñas seguras.
-- [Registro](./Registro) – Sistema de registro de usuarios.
-- [Samba](./Samba) – Configuración de servicios Samba.
-- [Separador](./Separador) – Herramienta para dividir o organizar contenido.
-- [Shutdown](./Shutdown) – Script para apagar el sistema.
-- [Test Internet](./Test%20Internet) – Comprobación de conectividad.
-- [Ventana](./Ventana) – Ejemplo de interfaz gráfica con Tkinter.
-
-*(Cada carpeta incluye su propio README con más detalles.)*
-
----
-
-## ▶️ Uso
-
-Cada proyecto puede ejecutarse de forma independiente.  
-Ejemplo:
-
+**Escanear directorio en busca de malware (por hash):**
 ```bash
-cd Antivirus
-python3 antivirus.py
+python src/sysadmin_utils/main.py scan-malware "C:/Downloads"
 ```
 
+**Verificar hash de un archivo:**
+```bash
+python src/sysadmin_utils/main.py hash-check "archivo.exe"
+```
 
----
+### Redes
 
-## 📜 Licencia
+**Monitor de tráfico en tiempo real:**
+```bash
+python src/sysadmin_utils/main.py net-monitor
+```
 
-Este repositorio está bajo la licencia MIT. Puedes usarlo libremente con fines educativos y de investigación.
+**Listar conexiones activas:**
+```bash
+python src/sysadmin_utils/main.py list-connections
+```
+
+**Probar conectividad a Internet:**
+```bash
+python src/sysadmin_utils/main.py check-internet
+```
+
+### Sistema y Datos
+
+**Organizar archivos por extensión:**
+```bash
+python src/sysadmin_utils/main.py organize "C:/Users/Usuario/Downloads" --watch
+```
+
+**Buscar archivos por extensión:**
+```bash
+python src/sysadmin_utils/main.py search "C:/Proyectos" "py"
+```
+
+## 📂 Estructura del Proyecto
+
+```text
+src/
+└── sysadmin_utils/
+    ├── security/    # Hash utils, Malware scanner, Password manager
+    ├── network/     # Traffic monitor, Connectivity, Active connections, FTP
+    ├── system/      # Automation, Formatting, Power control
+    ├── data/        # File search, DB connector, File manager
+    ├── ui/          # Notifications, Windows, Calendar
+    ├── utils/       # Config, Logger
+    └── main.py      # CLI Entry point
+```
+
+## 🤝 Contribución
+
+Si deseas contribuir, por favor sigue los estándares de código (PEP 8) y asegúrate de agregar tests para nuevas funcionalidades.
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
